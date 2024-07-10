@@ -4,7 +4,7 @@ export default function Navbar({toggleSidebar}) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <img src="/imgs/menu.png" alt="" style={{'height' : '30px' , 'paddingLeft' : '1rem'} }  onClick={toggleSidebar}/>
+        <img src="/imgs/menu.png" alt="" style={{'height' : '30px' , 'paddingLeft' : '1rem' , 'width' : '45px'} }  onClick={toggleSidebar}/>
   <div className="container-fluid">
     <a className="navbar-brand" href="#">Stake</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import GameFeed from './components/GameFeed';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <Navbar toggleSidebar = {toggleSidebar} />
       <Sidebar show={show} />
+      <GameFeed/>
     </div>
   );
 }

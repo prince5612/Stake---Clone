@@ -1,0 +1,14 @@
+img{
+    height: 280px;
+    width: 210px;
+    border-radius: 4px;
+}
+
+.games{
+    margin-left: 15rem;
+    height: 62vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}

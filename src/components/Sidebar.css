@@ -14,6 +14,7 @@
     align-items: center;
 }
 .divCategory{
+    
 margin-right: 18px;
 }
 .links{
@@ -39,7 +40,7 @@ img{
 }
 
 .s-side-bar{
-    width: 5%;
+    width: 3.5%;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -52,13 +53,19 @@ img{
         width: 90%;
     }
     .divCategory {
-        padding-left: 10px;
+        border-radius: 3px;
+        padding-left: 2px;
+        background-color: #343434;
+        margin-right: 0px;
     }
     .links i{
         font-size: 15px;
     }
     .divHome{
-        padding-left: 10px;
+        border-radius: 3px;
+        padding-left: 2px;
+        background-color: #343434;
+        
     }
     h6{
         font-size: small;
