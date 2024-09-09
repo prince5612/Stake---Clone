@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import GameFeed from './components/GameFeed';
+import SignUp from './components/SignUp';
 
 
 function App() {
@@ -13,9 +14,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Navbar toggleSidebar = {toggleSidebar} />
+      {/* <Navbar toggleSidebar = {toggleSidebar} />
       <Sidebar show={show} />
-      <GameFeed/>
+      <GameFeed/> */}
+
+      <SignUp/>
     </div>
   );
 }
