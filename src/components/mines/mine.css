@@ -1,0 +1,153 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+
+
+.d-grid{
+  margin-left: 44%;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(5, 90px);
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.gap-10{
+  gap: 100px;
+}
+
+.totalScore{
+  font-size: 60px;
+  color: gold;
+  margin-top: 150px;
+}
+
+.totalScore p {
+  margin: 0;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+.d-grid{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(5, 90px);
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+
+.game-container {
+  padding-top: 6%;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 20px; */
+}
+
+.left-panel {
+  color: aliceblue;
+  margin-top: 90px;
+  margin-left: 17%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-panel {
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  /* width: 60%; */
+}
+
+.bet-section, .multiplier-section, .score-section {
+  margin-bottom: 20px;
+}
+
+.bet-section input {
+  width: 100px;
+  padding: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.collect-btn, .reset-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.collect-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.collect-btn:hover {
+  background-color: #45a049;
+}
+
+.reset-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #d32f2f;
+}

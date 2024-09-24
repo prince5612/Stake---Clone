@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { Link  , useNavigate} from "react-router-dom";
 
 export default function SignUp() {
-
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -18,10 +19,15 @@ export default function SignUp() {
     e.preventDefault();
     try {
       // POST form data to the backend
-      const response = await axios.post('/api/users/signup', formData);
+      const response = await axios.post('http://localhost:1000/api/v1/signup', formData);
       console.log(response.data);  // handle success
+      navigate('/signin')
     } catch (error) {
-      console.error(error.response.data);  // handle error
+      if (error.response) {
+        console.error(error.response.data);  // handle error from server
+      } else {
+        console.error('Error:', error.message);  // handle other errors
+      }
     }
   };
 
@@ -29,18 +35,16 @@ export default function SignUp() {
     <div>
       <div
         className="container d-flex justify-content-center align-items-center"
-        style={{ minHeight: "100vh" , minWidth: '100vw'}}
+        style={{ minHeight: "100vh", minWidth: '100vw' }}
       >
         <div className="card p-4 col-md-6 col-lg-5">
           <h2 className="text-center mb-4">Sign Up</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Username
-              </label>
+              <label htmlFor="username" className="form-label">Username</label>
               <input
                 type="text"
-                name="username"  // Add name attribute
+                name="username"
                 className="form-control"
                 value={formData.username}
                 onChange={handleChange}
@@ -50,12 +54,10 @@ export default function SignUp() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email address
-              </label>
+              <label htmlFor="email" className="form-label">Email address</label>
               <input
                 type="email"
-                name="email"  // Add name attribute
+                name="email"
                 className="form-control"
                 value={formData.email}
                 onChange={handleChange}
@@ -65,12 +67,10 @@ export default function SignUp() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
+              <label htmlFor="password" className="form-label">Password</label>
               <input
                 type="password"
-                name="password"  // Add name attribute
+                name="password"
                 className="form-control"
                 id="password"
                 placeholder="Enter your password"
@@ -80,28 +80,22 @@ export default function SignUp() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="confirmPassword" className="form-label">
-                Confirm Password
-              </label>
+              <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
               <input
                 type="password"
-                name="confirmPassword"  // Add name attribute
+                name="confirmPassword"
+                className="form-control"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="form-control"
                 id="confirmPassword"
                 placeholder="Confirm your password"
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Sign Up
-            </button>
+            <button type="submit" className="btn btn-primary w-100">Sign Up</button>
             <p className="mt-3 text-center">
               Already have an account?{" "}
-              <a href="#" style={{ color: "#6200ea" }}>
-                Login
-              </a>
+              <Link to={"/signin"}  style={{ color: "#6200ea" }} > SignIn </Link>
             </p>
           </form>
         </div>

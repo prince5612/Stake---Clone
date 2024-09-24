@@ -6,13 +6,13 @@ const { authToken } = require('./userAuth');
 // Create Transaction
 router.post('/transactions',authToken, async (req, res) => {
     try {
-        const {email , amount} = req.body;
-        const {id} = req.headers;
+        const { amount , type} = req.body;
+        const {user_id} = req.headers;
 
         const newTransaction = new Transactions({
-            user_id:id,
-            email,
-            amount
+            user_id:user_id,
+            amount,
+            type:type,
         });
 
         await newTransaction.save();
@@ -25,8 +25,8 @@ router.post('/transactions',authToken, async (req, res) => {
 // Get All Transactions
 router.get('/getalltransactions',authToken, async (req, res) => {
     try {
-        const {id} = req.headers;
-        const transaction = await Transactions.find({ user_id: id }).populate('user_id');
+        const {user_id} = req.headers;
+        const transaction = await Transactions.find({ user_id: user_id }).populate('user_id');
         res.status(200).json(transaction);
     } catch (error) {
         res.status(500).json({ msg: 'Server error' });

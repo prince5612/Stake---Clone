@@ -8,11 +8,11 @@ const BetsSchema = new Schema({
         required: true,
         ref: 'User'
     },
-    // games_id: {
-    //     type : Schema.Types.ObjectId,
-    //     required: true,
-    //     ref: 'Games'
-    // },
+    game_name: {
+        type : String,
+        required: true,
+        ref: 'Games'
+    },
     bet_amount: {
         type : Number,
         required: true

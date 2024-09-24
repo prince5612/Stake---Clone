@@ -8,15 +8,18 @@ const TransactionsSchema = new Schema({
         required: true,
         ref: 'User'
     },
-    email: {
-        type : String,
-        required: true,
-        unique : true
-    },
     amount : {
         type : Number,
         required: true
     },
+    type : {
+        type : String,
+        required : true
+    },
+    date :{
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model("Transactions" , TransactionsSchema);

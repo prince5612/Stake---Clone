@@ -1,9 +1,9 @@
-.container {
+.container1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 15%;
-    padding-top: 60px;
+    padding-top: 100px;
     position: fixed;
     background-color: #1f1e1e; 
     height: 100%;
@@ -13,10 +13,7 @@
 .divHome {
     align-items: center;
 }
-.divCategory{
-    
-margin-right: 18px;
-}
+
 .links{
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +22,8 @@ margin-right: 18px;
     cursor: pointer;
     font-size: small;
     margin: 7px;
-    
+    text-decoration: none;
+    color: aliceblue;
 }
 hr{
     height: 1px;
@@ -44,7 +42,7 @@ img{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    padding-top: 60px;
+    padding-top: 100px;
     position: fixed;
     background-color: #1f1e1e; 
     height: 100%;
@@ -74,3 +72,4 @@ img{
         display: none;
     }
 }
+

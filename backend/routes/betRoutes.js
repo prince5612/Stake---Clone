@@ -6,14 +6,14 @@ const { authToken } = require('./userAuth');
 // Create Bet
 router.post('/bets',authToken,  async (req, res) => {
     try {
-        const { bet_amount, payout_amount, outcome } = req.body;
-        const {id} = req.headers;
-        // const {g_id} =req.headers;
+        const { bet_amount, payout_amount, outcome  , game_name} = req.body;
+        const {user_id} = req.headers;
+        // const {game_id} =req.headers;
 
         const bet = new Bets(
             {
-                user_id: id,
-                // games_id: g_id,
+                user_id: user_id,
+                game_name: game_name,
                 bet_amount,
                 payout_amount,
                 outcome
@@ -30,8 +30,8 @@ router.post('/bets',authToken,  async (req, res) => {
 // Get All Bets
 router.get('/getallbets',authToken, async (req, res) => {
     try {
-        const {id} = req.headers;
-        const bets = await Bets.find({ user_id: id }).populate('user_id');
+        const {user_id} = req.headers;
+        const bets = await Bets.find({ user_id: user_id }).populate('user_id');
         res.status(200).json(bets);
     } catch (error) {
         res.status(500).json({ msg: 'Server error' });

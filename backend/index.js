@@ -1,18 +1,20 @@
 
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 require("dotenv").config();
 require("./db")
 const userRoute = require("./routes/userRoutes")
 const betRoute = require("./routes/betRoutes")
 const transactionRoute = require("./routes/transactionRoutes")
-
-
+const gameRoute = require("./routes/gameRoutes")
+const cors = require('cors');
+app.use(cors()); 
 app.use(express.json());
 //routes 
 app.use("/api/v1" , userRoute );
 app.use("/api/v1" , betRoute );
 app.use("/api/v1" , transactionRoute);
+app.use("/api/v1" , gameRoute);
 
 
 

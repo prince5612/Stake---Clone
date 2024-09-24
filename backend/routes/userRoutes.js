@@ -4,6 +4,9 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const {authToken} = require('./userAuth');
+// const cors = require('cors');
+
+// app.use(cors()); 
 //  user signup
 router.post('/signup', async (req, res) => {
   const { username, email, password } = req.body;
@@ -31,6 +34,7 @@ router.post('/signup', async (req, res) => {
     });
 
     await newUser.save();
+    console.log("hello");
     res.json({ msg: 'User registered successfully', newUser});
 
   } catch (error) {
@@ -52,6 +56,7 @@ router.post('/signin' , async (req, res) => {
       if (data) {
         
         const token = jwt.sign({ username: username} , "stake123");
+        console.log("signin baby");
         return res.status(200).json({ id : user._id , token : token });
       }
       else{
@@ -82,15 +87,37 @@ router.get("/getuser" , authToken , async (req,res) =>{
 
 // update balance
 
-router.put("/updatebalance" , authToken , async (req,res) =>{
+// router.put("/updatebalance" , authToken , async (req,res) =>{
+//   try {
+//     const {id} = req.headers;
+//     const {balance} =req.body;
+//     await User.findByIdAndUpdate(id , {balance : balance});
+//     return res.status(200).json({msg: "Balance Updated successfully"});
+//   } catch (error) {
+//     // console.error(error);
+//     res.status(500).json({ msg: 'Server error' });
+//   }
+// });
+
+
+router.post('/update-balance', async (req, res) => {
+  const { userId, amount } = req.body;
+
   try {
-    const {id} = req.headers;
-    const {balance} =req.body;
-    await User.findByIdAndUpdate(id , {balance : balance});
-    return res.status(200).json({msg: "Balance Updated successfully"});
+      const user = await User.findById(userId);
+      if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+
+      // Update user's balance
+      user.balance += amount;
+
+      // Save the user object after updating balance
+      await user.save();
+
+      res.json({ message: 'Balance updated successfully', newBalance: user.balance });
   } catch (error) {
-    // console.error(error);
-    res.status(500).json({ msg: 'Server error' });
+      res.status(500).json({ error: 'Error updating balance' });
   }
 });
 module.exports = router;
